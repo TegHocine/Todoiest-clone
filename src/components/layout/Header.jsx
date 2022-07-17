@@ -3,6 +3,7 @@ import React from 'react'
 import { FaPizzaSlice } from 'react-icons/fa'
 
 const Header = () => {
+  console.log(process.env.REACT_APP_APIKEY)
   return (
     <header className='header' data-testid='header'>
       <nav>
