@@ -3,7 +3,7 @@ import React from 'react'
 import Header from './components/layout/Header'
 import Content from './components/layout/Content'
 
-import './App.css'
+import './App.scss'
 
 const App = () => (
   <div className='App'>
