@@ -12,8 +12,10 @@ const Header = () => {
         </div>
         <div className='settings'>
           <ul>
-            <li>+</li>
-            <li>
+            <li className='settings__add' data-testid='quick-add-task-action'>
+              +
+            </li>
+            <li className='settings__darkmode' data-testid='darkmode-action'>
               <FaPizzaSlice />
             </li>
           </ul>
