@@ -257,6 +257,7 @@ header {
   overflow-y: hidden;
   border-right: $generic-border;
   background-color: $bg-color;
+  padding-left: 0.5rem;
 
   @include mq('56.25rem') {
     display: none;
@@ -412,7 +413,7 @@ header {
       &.active,
       &:hover {
         font-weight: bold;
-        background-color: white;
+        background-color: $bg-color;
       }
     }
   }
