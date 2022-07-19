@@ -7,6 +7,7 @@ import {
   FaRegCalendar
 } from 'react-icons/fa'
 import { useSelectedProjectValue } from '../../context'
+import Projects from '../Projects'
 
 const Sidebar = () => {
   const { setSelectedProject } = useSelectedProjectValue
@@ -17,19 +18,21 @@ const Sidebar = () => {
   return (
     <div className='sidebar' data-testid='sidebar'>
       <ul className='sidebar__generic'>
-        <li data-testid='inbox' className='inbox'>
+        <li data-testid='inbox' className={active === 'inbox' ? 'active' : ''}>
           <span>
             <FaInbox />
           </span>
           <span>Inbox</span>
         </li>
-        <li data-testid='today' className='today'>
+        <li data-testid='today' className={active === 'today' ? 'active' : ''}>
           <span>
             <FaRegCalendar />
           </span>
           <span>Today</span>
         </li>
-        <li data-testid='next_7' className='next_7'>
+        <li
+          data-testid='next_7'
+          className={active === 'next_7' ? 'active' : ''}>
           <span>
             <FaRegCalendarAlt />
           </span>
@@ -42,8 +45,7 @@ const Sidebar = () => {
         </span>
         <h2>Projects</h2>
       </div>
-      <ul className='sidebar__projects'>Projects will be here! </ul>
-      add project comp here !
+      <ul className='sidebar__projects'>{showProjects && <Projects />} </ul>
     </div>
   )
 }
