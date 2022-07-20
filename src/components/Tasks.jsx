@@ -10,23 +10,29 @@ import {
 } from '../context'
 
 const Tasks = () => {
-  const { SelectedProject } = useSelectedProjectValue()
+  const { selectedProject } = useSelectedProjectValue()
   const { projects } = useProjectsValue()
-  const { tasks } = useTasks(SelectedProject)
+  const { tasks } = useTasks(selectedProject)
 
   let projectName = ''
 
-  if (projects && SelectedProject && !collatedTasksExist(SelectedProject)) {
-    projectName = getTitle(projects, SelectedProject).name
+  if (collatedTasksExist(selectedProject) && selectedProject) {
+    projectName = getCollatedTitle(collatedTasks, selectedProject).name
   }
 
-  if (collatedTasksExist(SelectedProject) && SelectedProject) {
-    projectName = getCollatedTitle(collatedTasks, SelectedProject).name
+  if (
+    projects &&
+    projects.length > 0 &&
+    selectedProject &&
+    !collatedTasksExist(selectedProject)
+  ) {
+    projectName = getTitle(projects, selectedProject).name
   }
 
   useEffect(() => {
     document.title = `${projectName}: Todoist`
-  }, [projectName])
+  })
+
   return (
     <div className='tasks' data-testid='tasks'>
       <h2 data-test='project-name'> {projectName} </h2>
