@@ -3,7 +3,7 @@ import moment from 'moment'
 import { FaSpaceShuttle, FaSun, FaRegPaperPlane } from 'react-icons/fa'
 import PropTypes from 'prop-types'
 
-export const TaskDate = ({ setTaskDate, showTaskDate, setShowTaskDate }) =>
+const TaskDate = ({ setTaskDate, showTaskDate, setShowTaskDate }) =>
   showTaskDate && (
     <div className='task-date' data-testid='task-date-overlay'>
       <ul className='task-date__list'>
@@ -82,3 +82,5 @@ TaskDate.propTypes = {
   showTaskDate: PropTypes.bool.isRequired,
   setShowTaskDate: PropTypes.func.isRequired
 }
+
+export default TaskDate
