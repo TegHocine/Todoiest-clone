@@ -12,8 +12,8 @@ $bg-color: #fafafa;
 $text-color: #202020;
 $secondary-text-color: #fff;
 
-$light-hover-color: #f9f9f9;
-$cancel-color: #555;
+$light-hover-color: #f3f3f3;
+$gray-color: #555;
 $task-item-color: #333;
 
 // General Settings
@@ -105,7 +105,7 @@ ul {
 }
 
 @mixin cancel() {
-  color: $cancel-color;
+  color: $gray-color;
   cursor: pointer;
   font-size: 0.875rem;
   margin: 0.125 0.313rem;
@@ -127,7 +127,7 @@ ul {
   padding-bottom: 0.625rem;
   font-size: 0.875rem;
   list-style-type: none;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid $bg-color;
   padding-left: 0.625rem;
   cursor: pointer;
 
@@ -364,7 +364,7 @@ header {
 
     h2 {
       margin: 0;
-      color: #333;
+      color: $task-item-color;
       font-size: 0.938rem;
       font-weight: bold;
       padding-bottom: 1.25rem;
@@ -374,7 +374,7 @@ header {
   &__generic {
     li {
       list-style-type: none;
-      color: #333;
+      color: $task-item-color;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -427,9 +427,9 @@ header {
   &__inner {
     @include box-overlay();
     z-index: 99;
-    width: 200px;
-    padding: 10px;
-    top: 10px;
+    width: 12.5rem;
+    padding: 0.625rem;
+    top: 0.625rem;
     right: 0;
     background-color: white;
 
@@ -438,11 +438,11 @@ header {
       margin-bottom: 5px;
       line-height: normal;
       font-weight: normal;
-      font-size: 15px;
+      font-size: 0.938rem;
     }
 
     button {
-      @include btn('50px');
+      @include btn('3.125rem');
     }
     span {
       @include cancel();
@@ -454,12 +454,12 @@ header {
 /* Add Project
   ============================================ */
 .add-project {
-  padding-left: 13px;
-  padding-right: 20px;
-  margin-top: 20px;
+  padding-left: 0.813rem;
+  padding-right: 1.25rem;
+  margin-top: 1.25rem;
 
   &__input {
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
   }
 
   &__name {
@@ -467,13 +467,13 @@ header {
     border: 1px solid #ddd;
     background-color: white !important;
     border-radius: 3px;
-    height: 35px;
-    padding-left: 10px;
-    padding-right: 10px;
+    height: 2.188rem;
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
   }
 
   &__submit {
-    @include btn('100px');
+    @include btn('6.25rem');
   }
 
   &__cancel {
@@ -489,53 +489,53 @@ header {
   -ms-flex-align: center;
   align-items: center;
   grid-template-columns: 1fr auto;
-  max-width: 922px;
+  max-width: 57.625rem;
   margin: auto;
 }
 
 /* Tasks
     ============================================ */
 .tasks {
-  width: 656px;
+  width: 41rem;
   background-color: white;
-  margin-left: 266px;
+  margin-left: 16.625rem;
   border-right: $generic-border;
   min-height: calc(100vh);
   vertical-align: top;
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-top: 80px;
-  padding-bottom: 84px;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 
-  @include mq('900px') {
+  @include mq('56.25rem') {
     margin-left: 0;
     width: auto;
   }
 
   h2 {
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: normal;
-    margin: 0 30px 20px 0;
+    margin: 0 1.875rem 1.25rem 0;
   }
 
   .add-task {
-    margin-top: 20px;
+    margin-top: 1.25rem;
   }
 
   &__list li {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    line-height: 18px;
-    color: #333;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-size: 14px;
+    line-height: 1.125;
+    color: $task-item-color;
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+    font-size: 0.875rem;
     list-style-type: none;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid $light-hover-color;
 
     .checkbox-holder {
-      margin-right: 20px;
+      margin-right: 1.25rem;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -545,17 +545,17 @@ header {
       -webkit-box-pack: center;
       -ms-flex-pack: center;
       justify-content: center;
-      line-height: 16px;
+      line-height: 1rem;
 
       .checkbox {
         cursor: pointer;
-        border-color: gray;
-        color: #343434;
-        height: 16px;
-        width: 16px;
+        border-color: $gray-color;
+        color: $task-item-color;
+        height: 1rem;
+        width: 1rem;
         display: block;
-        border: 1px solid gray;
-        border-radius: 16px;
+        border: 1px solid $gray-color;
+        border-radius: 1rem;
       }
     }
   }
@@ -578,36 +578,36 @@ header {
     height: calc(100vh);
 
     .add-task__main {
-      @include mq('900px') {
+      @include mq('56.25rem') {
         width: 90%;
       }
 
       overflow: visible;
-      margin-bottom: 20px;
-      margin-top: 55px;
+      margin-bottom: 1.25rem;
+      margin-top: 3.438rem;
       border-radius: 5px;
       background-color: white;
       position: absolute;
       left: 50%;
       top: 50%;
-      padding: 20px 30px;
+      padding: 1.25rem 1.875rem;
       -webkit-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
 
       .header {
-        font-size: 13px;
-        margin-bottom: 20px;
+        font-size: 0.813rem;
+        margin-bottom: 1.25rem;
         float: left;
       }
     }
 
     .add-task__cancel-x {
       cursor: pointer;
-      color: $cancel-color;
+      color: $gray-color;
       float: right;
       font-weight: bold;
-      font-size: 12px;
-      margin-top: 10px;
+      font-size: 0.75rem;
+      margin-top: 0.625rem;
     }
   }
 
@@ -619,8 +619,8 @@ header {
   &__date {
     cursor: pointer;
     float: right;
-    color: $cancel-color;
-    margin: 20px 10px;
+    color: $gray-color;
+    margin: 1.25rem 0.625rem;
   }
 
   &__project {
@@ -632,9 +632,9 @@ header {
     border: 1px solid #ddd;
     background-color: white !important;
     border-radius: 3px;
-    height: 35px;
-    padding-left: 10px;
-    padding-right: 10px;
+    height: 2.188rem;
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
   }
 
   &__cancel,
@@ -647,7 +647,7 @@ header {
   }
 
   &__submit {
-    @include btn('90px');
+    @include btn('5.625rem');
   }
 }
 
@@ -655,21 +655,21 @@ header {
 .add-project {
   @include no-select;
   cursor: pointer;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 .add-task__plus,
 .add-project__plus {
   color: $accent-color;
-  font-size: 18px;
+  font-size: 1.125;
 }
 
 .add-task__text,
 .add-project__text {
   display: inline-block;
-  color: $cancel-color;
-  font-size: 14px;
-  margin-left: 15px;
+  color: $gray-color;
+  font-size: 0.875rem;
+  margin-left: 0.938rem;
 }
 
 /* Task Date
@@ -677,7 +677,7 @@ header {
 .task-date {
   @include box-overlay();
   background-color: #fff;
-  width: 200px;
+  width: 12.5rem;
   right: 0;
 
   &__list li {
@@ -685,7 +685,7 @@ header {
     padding: 0;
 
     div:nth-child(1) {
-      padding: 10px;
+      padding: 0.625rem;
       width: 100%;
       display: -webkit-box;
       display: -ms-flexbox;
@@ -695,10 +695,10 @@ header {
       align-items: center;
 
       span:first-of-type {
-        margin-right: 10px;
+        margin-right: 0.625rem;
 
         svg {
-          fill: grey;
+          fill: $gray-color;
         }
       }
     }
@@ -711,8 +711,8 @@ header {
   @include box-overlay();
   background-color: white;
 
-  @include mq('900px') {
-    width: 200px;
+  @include mq('56.25rem') {
+    width: 12.5rem;
     right: 0;
   }
 
@@ -722,7 +722,7 @@ header {
 
     div:nth-child(1) {
       width: 100%;
-      padding: 10px;
+      padding: 0.625rem;
     }
   }
 }
