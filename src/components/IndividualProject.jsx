@@ -21,7 +21,7 @@ const IndividualProject = ({ project }) => {
       })
   }
   return (
-    <>
+    <div className='individual__project'>
       <span className='sidebar__dot'>•</span>
       <span className='sidebar__project-name'>{project.name}</span>
       <span
@@ -39,26 +39,28 @@ const IndividualProject = ({ project }) => {
           <div className='project-delete-modal'>
             <div className='project-delete-modal__inner'>
               <p>Are you sure you want to delete this project?</p>
-              <button
-                type='button'
-                onClick={() => deleteProject(project.docId)}>
-                Delete
-              </button>
-              <span
-                onClick={() => setShowConfirm(!showConfirm)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') setShowConfirm(!showConfirm)
-                }}
-                tabIndex={0}
-                role='button'
-                aria-label='Cancel adding project, do not delete'>
-                Cancel
-              </span>
+              <div className='project-delete-modal__inner__action'>
+                <button
+                  type='button'
+                  onClick={() => deleteProject(project.docId)}>
+                  Delete
+                </button>
+                <span
+                  onClick={() => setShowConfirm(!showConfirm)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') setShowConfirm(!showConfirm)
+                  }}
+                  tabIndex={0}
+                  role='button'
+                  aria-label='Cancel adding project, do not delete'>
+                  Cancel
+                </span>
+              </div>
             </div>
           </div>
         )}
       </span>
-    </>
+    </div>
   )
 }
 

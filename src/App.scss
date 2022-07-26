@@ -12,7 +12,7 @@ $bg-color: #fafafa;
 $text-color: #202020;
 $secondary-text-color: #fff;
 
-$light-hover-color: #f3f3f3;
+$light-hover-color: #f9f9f9;
 $gray-color: #555;
 $task-item-color: #333;
 
@@ -253,8 +253,7 @@ header {
   height: calc(100vh);
   padding-top: 5rem;
   position: fixed;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow: hidden;
   border-right: $generic-border;
   background-color: $bg-color;
   padding-left: 0.5rem;
@@ -419,34 +418,45 @@ header {
   }
 }
 
-/* Show Confirm Delete
-  ============================================ */
-.project-delete-modal {
+/* Show Confirm Delete 
+============================================ */
+.individual__project {
   position: relative;
+  padding: 0 !important;
+  .project-delete-modal {
+    &__inner {
+      @include box-overlay();
+      position: absolute;
+      z-index: 99;
+      width: 20rem;
+      padding: 0.625rem;
+      top: 2rem;
+      left: 0rem;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      p {
+        width: 100%;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        line-height: normal;
+        font-weight: normal;
+        font-size: 0.938rem;
+      }
 
-  &__inner {
-    @include box-overlay();
-    z-index: 99;
-    width: 12.5rem;
-    padding: 0.625rem;
-    top: 0.625rem;
-    right: 0;
-    background-color: white;
+      &__action {
+        width: 100%;
 
-    p {
-      margin-top: 5px;
-      margin-bottom: 5px;
-      line-height: normal;
-      font-weight: normal;
-      font-size: 0.938rem;
-    }
-
-    button {
-      @include btn('3.125rem');
-    }
-    span {
-      @include cancel();
-      font-weight: normal;
+        button {
+          @include btn('3.125rem');
+        }
+        span {
+          @include cancel();
+          font-weight: normal;
+        }
+      }
     }
   }
 }
