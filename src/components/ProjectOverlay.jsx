@@ -31,6 +31,7 @@ const ProjectOverlay = ({
                 role='button'
                 tabIndex={0}
                 aria-label='Select the task project'>
+                <span className='project__dot'>•</span>
                 {project.name}
               </div>
             </li>
