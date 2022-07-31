@@ -1,0 +1,102 @@
+@use '../scss/' as *;
+
+header {
+  border-bottom: solid 1px $accent-color;
+  background-color: $generic-bg;
+  -webkit-transition: height 200ms ease-in;
+  transition: height 200ms ease-in;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  height: 2.75rem;
+  z-index: 400;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  @include mq('56.25rem') {
+    padding: 0 0.625rem;
+  }
+
+  nav {
+    display: grid;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    max-width: 57.625rem;
+    margin: auto;
+    height: 2.75rem;
+
+    p,
+    li {
+      color: $secondary-text-color;
+    }
+
+    div {
+      &.logo {
+        padding-left: 0.5rem;
+        grid-area: 1 / 1;
+
+        img {
+          width: 1.5rem;
+        }
+      }
+
+      &.settings {
+        grid-area: 1 / 2;
+        text-align: right;
+
+        ul {
+          float: right;
+        }
+
+        ul li {
+          @include va;
+
+          list-style-type: none;
+          cursor: pointer;
+          width: 2rem;
+          height: 2rem;
+          text-align: center;
+          vertical-align: middle;
+          float: left;
+
+          &:hover {
+            border-radius: 3px;
+            background-color: rgba($light-hover-color, 0.2);
+          }
+
+          &.settings__add {
+            margin-right: 1rem;
+            font-size: 2rem;
+
+            button {
+              @include transparent-button();
+              color: $secondary-text-color;
+              cursor: pointer;
+            }
+          }
+
+          &.settings__darkmode {
+            button {
+              @include transparent-button();
+              color: $secondary-text-color;
+              cursor: pointer;
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+
+              svg {
+                width: 1.2rem;
+                height: 1.2rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

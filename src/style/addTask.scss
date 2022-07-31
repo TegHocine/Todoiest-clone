@@ -1,0 +1,110 @@
+@use '../scss/' as *;
+
+.add-task {
+  &__overlay {
+    background: rgba(102, 102, 102, 0.5);
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    -webkit-transition: opacity 0.2s ease-in;
+    transition: opacity 0.2s ease-in;
+    height: calc(100vh);
+
+    .add-task__main {
+      @include mq('56.25rem') {
+        width: 90%;
+      }
+
+      overflow: visible;
+      margin-bottom: 1.25rem;
+      margin-top: 3.438rem;
+      border-radius: 5px;
+      background-color: white;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      padding: 1.25rem 1.875rem;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+
+      .header {
+        font-size: 0.813rem;
+        margin-bottom: 1.25rem;
+        float: left;
+      }
+    }
+
+    .add-task__cancel-x {
+      cursor: pointer;
+      color: $gray-color;
+      float: right;
+      font-weight: bold;
+      font-size: 0.75rem;
+      margin-top: 0.625rem;
+    }
+  }
+
+  &__main {
+    position: relative;
+  }
+
+  &__project,
+  &__date {
+    cursor: pointer;
+    float: right;
+    color: $gray-color;
+    margin: 1.25rem 0.625rem;
+  }
+
+  &__project {
+    margin-right: 0;
+  }
+
+  &__content {
+    width: 100%;
+    border: 1px solid #ddd;
+    background-color: white !important;
+    border-radius: 3px;
+    height: 2.188rem;
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
+  }
+
+  &__cancel,
+  &__submit {
+    @include no-select;
+  }
+
+  &__cancel {
+    @include cancel();
+  }
+
+  &__submit {
+    @include btn('5.625rem');
+  }
+}
+
+.add-task__shallow,
+.add-project {
+  @include no-select;
+  cursor: pointer;
+  margin-bottom: 1.25rem;
+}
+
+.add-task__plus,
+.add-project__plus {
+  color: $accent-color;
+  font-size: 1.125;
+}
+
+.add-task__text,
+.add-project__text {
+  display: inline-block;
+  color: $gray-color;
+  font-size: 0.875rem;
+  margin-left: 0.938rem;
+}

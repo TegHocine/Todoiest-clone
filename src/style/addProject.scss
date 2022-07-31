@@ -1,0 +1,29 @@
+@use '../scss/' as *;
+
+.add-project {
+  padding-left: 0.813rem;
+  padding-right: 1.25rem;
+  margin-top: 1.25rem;
+
+  &__input {
+    margin-bottom: 1.25rem;
+  }
+
+  &__name {
+    width: 100%;
+    border: 1px solid #ddd;
+    background-color: white !important;
+    border-radius: 3px;
+    height: 2.188rem;
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
+  }
+
+  &__submit {
+    @include btn('6.25rem');
+  }
+
+  &__cancel {
+    @include cancel();
+  }
+}

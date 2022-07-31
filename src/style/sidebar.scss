@@ -1,0 +1,260 @@
+@use '../scss/' as *;
+
+.sidebar {
+  @include no-select();
+  width: 16.625rem;
+  height: calc(100vh);
+  padding-top: 5rem;
+  position: fixed;
+  top: 0;
+  border-right: $generic-border;
+  background-color: $bg-color;
+  padding-left: 0.5rem;
+
+  @include mq('56.25rem') {
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
+
+  &__button {
+    display: none;
+    z-index: 99;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: inherit;
+    height: 1rem;
+    position: fixed;
+    top: 3rem;
+    left: 1rem;
+    flex-direction: column;
+    padding: 0.2rem;
+    transition: 1s ease;
+    &.active {
+      left: 14rem;
+    }
+    @include mq('56.25rem') {
+      display: flex;
+    }
+
+    .buger {
+      padding: 1.5px;
+      margin-block: 2px;
+      width: 18px;
+      background-color: $accent-color;
+      transition: translateY(0) rotate(0);
+      transition: 1s ease;
+      opacity: 1;
+
+      &.bugerOne {
+        transform: translateY(7px) rotate(45deg);
+      }
+      &.bugerTwo {
+        opacity: 0;
+      }
+      &.bugerThree {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+    }
+  }
+
+  li {
+    &:hover .sidebar__project-delete {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+    }
+  }
+
+  &__project {
+    cursor: pointer;
+
+    div:nth-child(1) {
+      padding: 5px 0;
+      padding-left: 1rem;
+      padding-right: 1.5rem;
+      width: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+
+    &-delete {
+      margin-left: auto;
+      display: none;
+
+      svg {
+        color: #cacaca;
+      }
+    }
+
+    &.active,
+    &:hover {
+      font-weight: bold;
+      background-color: $bg-color;
+    }
+
+    &:nth-child(1) {
+      .sidebar__dot {
+        color: #6accbc;
+      }
+    }
+    &:nth-child(2) {
+      .sidebar__dot {
+        color: #fad003;
+      }
+    }
+    &:nth-child(3) {
+      .sidebar__dot {
+        color: #ff8d85;
+      }
+    }
+    &:nth-child(4) {
+      .sidebar__dot {
+        color: #ff9932;
+      }
+    }
+    &:nth-child(5) {
+      .sidebar__dot {
+        color: #af38eb;
+      }
+    }
+  }
+
+  &__projects {
+    padding-left: 0.5rem;
+  }
+
+  &__project {
+    @include va('left');
+  }
+
+  &__dot {
+    margin-right: 0.625rem;
+    font-size: 1.875rem;
+  }
+
+  &__middle {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    border-bottom: $generic-border;
+    padding-left: 0.625rem;
+    cursor: pointer;
+
+    span {
+      color: #0000008a;
+      margin-right: 0.625rem;
+
+      svg.hidden-projects {
+        -webkit-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+      }
+    }
+
+    h2 {
+      margin: 0;
+      color: $task-item-color;
+      font-size: 0.938rem;
+      font-weight: bold;
+      padding-bottom: 1.25rem;
+    }
+  }
+
+  &__generic {
+    li {
+      list-style-type: none;
+      color: $task-item-color;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      cursor: pointer;
+      line-height: 1.5;
+      font-size: 0.938rem;
+      padding-inline: 0;
+      padding-block: 0.1rem;
+      margin-block: 0.1rem;
+      gap: 0.2rem;
+
+      div:nth-child(1) {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        padding: 0.625rem 0 0.625rem 0.625rem;
+        width: 100%;
+
+        span:first-of-type {
+          margin-right: 0.625rem;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+
+          svg {
+            width: 1.125rem;
+            height: 1.125rem;
+            color: #555;
+          }
+        }
+      }
+
+      &.active,
+      &:hover {
+        font-weight: bold;
+        background-color: $bg-color;
+      }
+    }
+  }
+}
+
+/* Show Confirm Delete 
+============================================ */
+.individual__project {
+  position: relative;
+  padding: 0 !important;
+  .project-delete-modal {
+    &__inner {
+      @include box-overlay();
+      position: absolute;
+      z-index: 99;
+      width: 20rem;
+      padding: 0.625rem;
+      top: 2rem;
+      left: 0rem;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      p {
+        width: 100%;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        line-height: normal;
+        font-weight: normal;
+        font-size: 0.938rem;
+      }
+
+      &__action {
+        width: 100%;
+
+        button {
+          @include btn('3.125rem');
+        }
+        span {
+          @include cancel();
+          font-weight: normal;
+        }
+      }
+    }
+  }
+}

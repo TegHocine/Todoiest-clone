@@ -1,0 +1,53 @@
+@use '../scss/' as *;
+
+.project-overlay {
+  @include box-overlay();
+  background-color: white;
+
+  @include mq('56.25rem') {
+    width: 12.5rem;
+    right: 0;
+  }
+
+  &__list li {
+    @include task-item();
+    padding: 0;
+    .project__dot {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+    &:nth-child(1) {
+      .project__dot {
+        color: #6accbc;
+      }
+    }
+    &:nth-child(2) {
+      .project__dot {
+        color: #fad003;
+      }
+    }
+    &:nth-child(3) {
+      .project__dot {
+        color: #ff8d85;
+      }
+    }
+    &:nth-child(4) {
+      .project__dot {
+        color: #ff9932;
+      }
+    }
+    &:nth-child(5) {
+      .project__dot {
+        color: #af38eb;
+      }
+    }
+
+    div:nth-child(1) {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.625rem;
+    }
+  }
+}

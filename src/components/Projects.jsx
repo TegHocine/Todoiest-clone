@@ -4,7 +4,7 @@ import { useSelectedProjectValue, useProjectsValue } from '../context'
 
 import IndividualProject from './IndividualProject'
 
-const Projects = ({ activeValue = true }) => {
+const Projects = ({ activeValue = true, onclick }) => {
   const [active, setActive] = useState(activeValue)
   const { setSelectedProject } = useSelectedProjectValue()
   const { projects } = useProjectsValue()
@@ -29,6 +29,7 @@ const Projects = ({ activeValue = true }) => {
           onClick={() => {
             setActive(project.projectId)
             setSelectedProject(project.projectId)
+            onclick()
           }}
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
