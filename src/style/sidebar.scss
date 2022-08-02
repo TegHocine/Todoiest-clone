@@ -1,6 +1,7 @@
 @use '../scss/' as *;
 
 .sidebar {
+  z-index: 5;
   @include no-select();
   width: 16.625rem;
   height: calc(100vh);
